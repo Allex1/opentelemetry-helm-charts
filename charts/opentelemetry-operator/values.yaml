@@ -99,6 +99,11 @@ admissionWebhooks:
       # kind:
       # name:
 
+## BYO webhooks and certificate while disabling chart ones.
+customAdmissionWebhooks:
+  enabled: false
+  secretName: ""
+
 ## Create the provided Roles and RoleBindings
 ##
 role:
