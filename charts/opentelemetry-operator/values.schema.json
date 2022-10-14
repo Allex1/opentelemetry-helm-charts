@@ -11,7 +11,6 @@
         "manager",
         "kubeRBACProxy",
         "admissionWebhooks",
-        "customAdmissionWebhooks",
         "role",
         "clusterRole",
         "affinity",
@@ -674,7 +673,11 @@
             "title": "The admissionWebhooks Schema",
             "required": [
                 "failurePolicy",
-                "enabled",
+                "create",
+                "secretName",
+                "timeoutSeconds",
+                "namespaceSelector",
+                "objectSelector",
                 "certManager"
             ],
             "properties": {
@@ -686,48 +689,45 @@
                         "Fail"
                     ]
                 },
-                "enabled": {
+                "create": {
                     "type": "boolean",
                     "default": false,
-                    "title": "The enabled Schema",
+                    "title": "The create Schema",
                     "examples": [
                         true
                     ]
                 },
+                "secretName": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The secretName Schema",
+                    "examples": [
+                        ""
+                    ]
+                },
                 "timeoutSeconds": {
                     "type": "integer",
-                    "default": 10,
+                    "default": 0,
                     "title": "The timeoutSeconds Schema",
                     "examples": [
-                      10
+                        10
                     ]
                 },
                 "namespaceSelector": {
                     "type": "object",
                     "default": {},
                     "title": "The namespaceSelector Schema",
-                    "examples": [{
-                        "matchExpressions": [
-                            {
-                                "key": "runlevel",
-                                "operator": "NotIn",
-                                "values": [
-                                    "0",
-                                    "1"
-                                ]
-                            }
-                        ]
-                    }]
+                    "required": [],
+                    "properties": {},
+                    "examples": [{}]
                 },
                 "objectSelector": {
                     "type": "object",
                     "default": {},
                     "title": "The objectSelector Schema",
-                    "examples": [{
-                        "matchLabels": {
-                            "foo": "bar"
-                        }
-                    }]
+                    "required": [],
+                    "properties": {},
+                    "examples": [{}]
                 },
                 "certManager": {
                     "type": "object",
@@ -763,7 +763,8 @@
             },
             "examples": [{
                 "failurePolicy": "Fail",
-                "enabled": true,
+                "create": true,
+                "secretName": "",
                 "timeoutSeconds": 10,
                 "namespaceSelector": {},
                 "objectSelector": {},
@@ -771,37 +772,6 @@
                     "enabled": true,
                     "issuerRef": {}
                 }
-            }]
-        },
-        "customAdmissionWebhooks": {
-            "type": "object",
-            "default": {},
-            "title": "The customAdmissionWebhooks Schema",
-            "required": [
-                "enabled",
-                "secretName"
-            ],
-            "properties": {
-                "enabled": {
-                    "type": "boolean",
-                    "default": false,
-                    "title": "The enabled Schema",
-                    "examples": [
-                        false
-                    ]
-                },
-                "secretName": {
-                    "type": "string",
-                    "default": "",
-                    "title": "The secretName Schema",
-                    "examples": [
-                        ""
-                    ]
-                }
-            },
-            "examples": [{
-                "enabled": false,
-                "secretName": ""
             }]
         },
         "role": {
@@ -1052,15 +1022,15 @@
         },
         "admissionWebhooks": {
             "failurePolicy": "Fail",
-            "enabled": true,
+            "create": true,
+            "secretName": "",
+            "timeoutSeconds": 10,
+            "namespaceSelector": {},
+            "objectSelector": {},
             "certManager": {
                 "enabled": true,
                 "issuerRef": {}
             }
-        },
-        "customAdmissionWebhooks": {
-            "enabled": false,
-            "secretName": ""
         },
         "role": {
             "create": true

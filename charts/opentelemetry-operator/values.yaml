@@ -88,7 +88,8 @@ kubeRBACProxy:
 ## They also enable the sidecar injection for OpenTelemetryCollector and Instrumentation CR's
 admissionWebhooks:
   failurePolicy: Fail
-  enabled: true
+  create: true
+  secretName: ""
 
   ## Customize webhook timeout duration
   timeoutSeconds: 10
@@ -105,11 +106,6 @@ admissionWebhooks:
     issuerRef: {}
       # kind:
       # name:
-
-## BYO webhooks and certificate while disabling chart ones. Do not enable together with admissionWebhooks.
-customAdmissionWebhooks:
-  enabled: false
-  secretName: ""
 
 ## Create the provided Roles and RoleBindings
 ##
