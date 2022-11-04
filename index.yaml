@@ -2,6 +2,24 @@ apiVersion: v1
 entries:
   opentelemetry-collector:
   - apiVersion: v2
+    appVersion: 0.63.1
+    created: "2022-11-04T09:16:53.12691041Z"
+    description: OpenTelemetry Collector Helm chart for Kubernetes
+    digest: e4e21813acb9bdb611642ba62802bd55f102678718fdb7c50318f50d2b390ede
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: TylerHelmuth
+    name: opentelemetry-collector
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-collector
+    - https://github.com/open-telemetry/opentelemetry-collector-contrib
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-collector-0.38.0/opentelemetry-collector-0.38.0.tgz
+    version: 0.38.0
+  - apiVersion: v2
     appVersion: 0.62.1
     created: "2022-10-20T07:50:39.410958969Z"
     description: OpenTelemetry Collector Helm chart for Kubernetes
@@ -1285,6 +1303,37 @@ entries:
     version: 0.1.0
   opentelemetry-demo:
   - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-11-04T09:16:53.274795759Z"
+    dependencies:
+    - condition: observability.otelcol.enabled
+      name: opentelemetry-collector
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: 0.38.0
+    - condition: observability.prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.16.1
+    - condition: observability.grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.42.2
+    description: opentelemetry demo helm chart
+    digest: a3ccd9e096c75db666a8031677b7361d625ff231da9853657644314c255b5473
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: tylerhelmuth
+    - name: wph95
+    name: opentelemetry-demo
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-demo
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-demo-0.10.0/opentelemetry-demo-0.10.0.tgz
+    version: 0.10.0
+  - apiVersion: v2
     appVersion: 0.6.0-beta
     created: "2022-10-20T07:50:39.569759397Z"
     dependencies:
@@ -1444,6 +1493,24 @@ entries:
     - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-demo-0.1.1/opentelemetry-demo-0.1.1.tgz
     version: 0.1.1
   opentelemetry-operator:
+  - apiVersion: v2
+    appVersion: 0.61.0
+    created: "2022-11-04T09:16:53.415782995Z"
+    description: OpenTelemetry Operator Helm chart for Kubernetes
+    digest: ba743b57e301809689c368462422177f77ee8e5d25f0792795c775f761c80e28
+    home: https://opentelemetry.io/
+    icon: https://raw.githubusercontent.com/cncf/artwork/a718fa97fffec1b9fd14147682e9e3ac0c8817cb/projects/opentelemetry/icon/color/opentelemetry-icon-color.png
+    maintainers:
+    - name: Allex1
+    - name: dmitryax
+    - name: TylerHelmuth
+    name: opentelemetry-operator
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-operator
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-operator-0.17.0/opentelemetry-operator-0.17.0.tgz
+    version: 0.17.0
   - apiVersion: v2
     appVersion: 0.60.0
     created: "2022-10-20T07:50:39.752584424Z"
@@ -2085,4 +2152,4 @@ entries:
     urls:
     - https://github.com/open-telemetry/opentelemetry-helm-charts/releases/download/opentelemetry-operator-0.1.0/opentelemetry-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-10-20T07:50:39.753450334Z"
+generated: "2022-11-04T09:16:53.416290403Z"
