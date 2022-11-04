@@ -1495,6 +1495,24 @@ entries:
   opentelemetry-operator:
   - apiVersion: v2
     appVersion: 0.61.0
+    created: "2022-11-04T09:21:59.564224439Z"
+    description: OpenTelemetry Operator Helm chart for Kubernetes
+    digest: b977dccdcdfad104ece411acfa7a6f87baa325810b9a7c28af6be8b8a50e8cf1
+    home: https://opentelemetry.io/
+    icon: https://raw.githubusercontent.com/cncf/artwork/a718fa97fffec1b9fd14147682e9e3ac0c8817cb/projects/opentelemetry/icon/color/opentelemetry-icon-color.png
+    maintainers:
+    - name: Allex1
+    - name: dmitryax
+    - name: TylerHelmuth
+    name: opentelemetry-operator
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-operator
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-operator-0.17.1/opentelemetry-operator-0.17.1.tgz
+    version: 0.17.1
+  - apiVersion: v2
+    appVersion: 0.61.0
     created: "2022-11-04T09:16:53.415782995Z"
     description: OpenTelemetry Operator Helm chart for Kubernetes
     digest: ba743b57e301809689c368462422177f77ee8e5d25f0792795c775f761c80e28
@@ -2152,4 +2170,4 @@ entries:
     urls:
     - https://github.com/open-telemetry/opentelemetry-helm-charts/releases/download/opentelemetry-operator-0.1.0/opentelemetry-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-04T09:16:53.416290403Z"
+generated: "2022-11-04T09:21:59.56541974Z"
