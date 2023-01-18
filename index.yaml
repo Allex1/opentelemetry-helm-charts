@@ -3,6 +3,24 @@ entries:
   opentelemetry-collector:
   - apiVersion: v2
     appVersion: 0.69.0
+    created: "2023-01-18T19:18:20.046394306Z"
+    description: OpenTelemetry Collector Helm chart for Kubernetes
+    digest: cb72f510ac17ee01100e7965c35231bb41eb3e985cffc0922de27bbd9485d2a9
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: TylerHelmuth
+    name: opentelemetry-collector
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-collector
+    - https://github.com/open-telemetry/opentelemetry-collector-contrib
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-collector-0.45.1/opentelemetry-collector-0.45.1.tgz
+    version: 0.45.1
+  - apiVersion: v2
+    appVersion: 0.69.0
     created: "2023-01-12T17:34:48.620475491Z"
     description: OpenTelemetry Collector Helm chart for Kubernetes
     digest: 68906e3292b9079dcee2b63608b13f7b73682e58e40967aa4ca41a8a242f9e42
@@ -1412,6 +1430,41 @@ entries:
   opentelemetry-demo:
   - apiVersion: v2
     appVersion: 1.2.1
+    created: "2023-01-18T19:18:20.28792945Z"
+    dependencies:
+    - condition: observability.otelcol.enabled
+      name: opentelemetry-collector
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: 0.45.0
+    - condition: observability.jaeger.enabled
+      name: jaeger
+      repository: https://jaegertracing.github.io/helm-charts
+      version: 0.66.1
+    - condition: observability.prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 19.3.1
+    - condition: observability.grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.50.0
+    description: opentelemetry demo helm chart
+    digest: c83eed15a0d50505f2b3ce94466848bcb7c26930cd8721bec21b967763f6537b
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: puckpuck
+    - name: tylerhelmuth
+    name: opentelemetry-demo
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-demo
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-demo-0.16.0/opentelemetry-demo-0.16.0.tgz
+    version: 0.16.0
+  - apiVersion: v2
+    appVersion: 1.2.1
     created: "2023-01-12T17:34:48.858380063Z"
     dependencies:
     - condition: observability.otelcol.enabled
@@ -1799,6 +1852,24 @@ entries:
     - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-demo-0.1.1/opentelemetry-demo-0.1.1.tgz
     version: 0.1.1
   opentelemetry-operator:
+  - apiVersion: v2
+    appVersion: 0.67.0
+    created: "2023-01-18T19:18:20.436581932Z"
+    description: OpenTelemetry Operator Helm chart for Kubernetes
+    digest: d4afd8c3a0214566343fa7c0ed308f556c0d3b01804ebce6a7077a0cd85a2777
+    home: https://opentelemetry.io/
+    icon: https://raw.githubusercontent.com/cncf/artwork/a718fa97fffec1b9fd14147682e9e3ac0c8817cb/projects/opentelemetry/icon/color/opentelemetry-icon-color.png
+    maintainers:
+    - name: Allex1
+    - name: dmitryax
+    - name: TylerHelmuth
+    name: opentelemetry-operator
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-operator
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-operator-0.21.2/opentelemetry-operator-0.21.2.tgz
+    version: 0.21.2
   - apiVersion: v2
     appVersion: 0.67.0
     created: "2023-01-12T17:34:49.030515903Z"
@@ -2584,4 +2655,4 @@ entries:
     urls:
     - https://github.com/open-telemetry/opentelemetry-helm-charts/releases/download/opentelemetry-operator-0.1.0/opentelemetry-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2023-01-12T17:34:49.031225164Z"
+generated: "2023-01-18T19:18:20.437284331Z"
