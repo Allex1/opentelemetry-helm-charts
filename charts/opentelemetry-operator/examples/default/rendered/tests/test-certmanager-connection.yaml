@@ -7,6 +7,7 @@ metadata:
   namespace: default
   labels:
 <<<<<<< HEAD
+<<<<<<< HEAD
     helm.sh/chart: opentelemetry-operator-0.23.0
 =======
 <<<<<<< HEAD
@@ -15,6 +16,9 @@ metadata:
     helm.sh/chart: opentelemetry-operator-0.23.0
 >>>>>>> 468f3ee ([BUMP] - operator 0.69/collector 0.71)
 >>>>>>> 952a7ed ([BUMP] - operator 0.69/collector 0.71)
+=======
+    helm.sh/chart: opentelemetry-operator-0.23.0
+>>>>>>> 6874e03 (rebase)
     app.kubernetes.io/name: opentelemetry-operator
     app.kubernetes.io/version: "0.69.0"
     app.kubernetes.io/managed-by: Helm
