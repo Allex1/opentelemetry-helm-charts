@@ -2,6 +2,25 @@ apiVersion: v1
 entries:
   opentelemetry-collector:
   - apiVersion: v2
+    appVersion: 0.150.1
+    created: "2026-04-28T09:14:43.00208951Z"
+    description: OpenTelemetry Collector Helm chart for Kubernetes
+    digest: 50cd0dedebfe2977af8be55c906f573304534d2a4151c8aac17db6c590d8ad74
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: jaronoff97
+    - name: TylerHelmuth
+    name: opentelemetry-collector
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-collector
+    - https://github.com/open-telemetry/opentelemetry-collector-contrib
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-collector-0.152.0/opentelemetry-collector-0.152.0.tgz
+    version: 0.152.0
+  - apiVersion: v2
     appVersion: 0.128.0
     created: "2025-06-27T21:29:18.150008017Z"
     description: OpenTelemetry Collector Helm chart for Kubernetes
@@ -1739,6 +1758,47 @@ entries:
     version: 0.1.0
   opentelemetry-demo:
   - apiVersion: v2
+    appVersion: 2.2.0
+    created: "2026-04-28T09:14:43.293571916Z"
+    dependencies:
+    - condition: opentelemetry-collector.enabled
+      name: opentelemetry-collector
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: 0.142.2
+    - condition: jaeger.enabled
+      name: jaeger
+      repository: https://jaegertracing.github.io/helm-charts
+      version: 4.3.0
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 28.2.0
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 10.5.8
+    - condition: opensearch.enabled
+      name: opensearch
+      repository: https://opensearch-project.github.io/helm-charts/
+      version: 3.4.0
+    description: opentelemetry demo helm chart
+    digest: ba6706d01a3425c801641b65c8d2286c865adad3fbe0387fb45c12ee8074e20b
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: jaronoff97
+    - name: julianocosta89
+    - name: puckpuck
+    - name: tylerhelmuth
+    name: opentelemetry-demo
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-demo
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-demo-0.40.7/opentelemetry-demo-0.40.7.tgz
+    version: 0.40.7
+  - apiVersion: v2
     appVersion: 2.0.2
     created: "2025-06-27T21:18:09.343974364Z"
     dependencies:
@@ -2711,7 +2771,69 @@ entries:
     urls:
     - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-ebpf-0.1.0/opentelemetry-ebpf-0.1.0.tgz
     version: 0.1.0
+  opentelemetry-ebpf-instrumentation:
+  - apiVersion: v2
+    appVersion: v0.7.0
+    created: "2026-04-28T09:14:43.522984774Z"
+    description: OpenTelemetry eBPF instrumentation Helm chart for Kubernetes
+    digest: 8b28ce540c11d2102a1bfa5c2866b4eebf76befec107df577d683a66a087dbab
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: dmitryax
+    - name: jaronoff97
+    - name: TylerHelmuth
+    - name: nimrodavni78
+    name: opentelemetry-ebpf-instrumentation
+    sources:
+    - https://github.com/coralogix/opentelemetry-helm-charts
+    - https://github.com/open-telemetry/opentelemetry-helm-charts
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-ebpf-instrumentation-0.7.2/opentelemetry-ebpf-instrumentation-0.7.2.tgz
+    version: 0.7.2
   opentelemetry-kube-stack:
+  - apiVersion: v2
+    appVersion: 0.144.0
+    created: "2026-04-28T09:14:43.779011721Z"
+    dependencies:
+    - condition: crds.install,crds.installOtel
+      name: otel-crds
+      repository: ""
+      version: 0.0.0
+    - condition: crds.install,crds.installPrometheus
+      name: prometheus-crds
+      repository: ""
+      version: 0.0.0
+    - condition: opentelemetry-operator.enabled
+      name: opentelemetry-operator
+      repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+      version: 0.105.1
+    - condition: kubeStateMetrics.enabled
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 6.3.*
+    - condition: nodeExporter.enabled
+      name: prometheus-node-exporter
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.48.*
+    description: 'OpenTelemetry Quickstart chart for Kubernetes. Installs an operator
+      and collector for an easy way to get started with Kubernetes observability. '
+    digest: 756335e5c3953f77645a0c3eebd06da553f9e52faf8baeaab6ee66ed14d8bffd
+    home: https://opentelemetry.io/
+    icon: https://raw.githubusercontent.com/cncf/artwork/a718fa97fffec1b9fd14147682e9e3ac0c8817cb/projects/opentelemetry/icon/color/opentelemetry-icon-color.png
+    maintainers:
+    - name: Allex1
+    - name: dmitryax
+    - name: jaronoff97
+    - name: TylerHelmuth
+    name: opentelemetry-kube-stack
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-operator
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-kube-stack-0.14.12/opentelemetry-kube-stack-0.14.12.tgz
+    version: 0.14.12
   - apiVersion: v2
     appVersion: 0.120.0
     created: "2025-06-27T21:18:09.670439705Z"
@@ -2856,6 +2978,25 @@ entries:
     - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-kube-stack-0.0.6/opentelemetry-kube-stack-0.0.6.tgz
     version: 0.0.6
   opentelemetry-operator:
+  - apiVersion: v2
+    appVersion: 0.148.0
+    created: "2026-04-28T09:14:44.011021816Z"
+    description: OpenTelemetry Operator Helm chart for Kubernetes
+    digest: 5f81cb273a02c215bf2cc7fb1a6ef8689c7d163c9b5fb086dac1c695f061c5b0
+    home: https://opentelemetry.io/
+    icon: https://raw.githubusercontent.com/cncf/artwork/a718fa97fffec1b9fd14147682e9e3ac0c8817cb/projects/opentelemetry/icon/color/opentelemetry-icon-color.png
+    maintainers:
+    - name: Allex1
+    - name: dmitryax
+    - name: jaronoff97
+    - name: TylerHelmuth
+    name: opentelemetry-operator
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-operator
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-operator-0.110.0/opentelemetry-operator-0.110.0.tgz
+    version: 0.110.0
   - apiVersion: v2
     appVersion: 0.127.0
     created: "2025-07-10T18:23:33.233744098Z"
@@ -3955,6 +4096,22 @@ entries:
   opentelemetry-target-allocator:
   - apiVersion: v2
     appVersion: 0.126.0
+    created: "2026-04-28T09:14:44.262652883Z"
+    description: OpenTelemetry Target Allocator Helm chart for Kubernetes
+    digest: 4caedb3cf3dfd84b67c5b99014b94a15412c22898ed21ff5b3900b217b00d27a
+    home: https://opentelemetry.io/
+    icon: https://opentelemetry.io/img/logos/opentelemetry-logo-nav.png
+    maintainers:
+    - name: atoulme
+    name: opentelemetry-target-allocator
+    sources:
+    - https://github.com/open-telemetry/opentelemetry-operator
+    type: application
+    urls:
+    - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-target-allocator-0.127.2/opentelemetry-target-allocator-0.127.2.tgz
+    version: 0.127.2
+  - apiVersion: v2
+    appVersion: 0.126.0
     created: "2025-06-27T21:18:09.992153696Z"
     description: OpenTelemetry Target Allocator Helm chart for Kubernetes
     digest: d86b4c793a04523feab7749ecbb28c8b4922540fe63a6e9e06da71efeb0f085f
@@ -3969,4 +4126,4 @@ entries:
     urls:
     - https://github.com/Allex1/opentelemetry-helm-charts/releases/download/opentelemetry-target-allocator-0.126.1/opentelemetry-target-allocator-0.126.1.tgz
     version: 0.126.1
-generated: "2025-07-10T18:23:33.234179618Z"
+generated: "2026-04-28T09:14:44.263346977Z"
